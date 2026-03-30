@@ -1,0 +1,9 @@
+:queues:
+  - default
+  - mailers
+  - low_priority
+
+:schedule:
+  Guide_emails:
+    cron: "*/1 * * * *"   # every 1 minutes
+    class: "GuideEmailJob"
