@@ -6,6 +6,7 @@ class Store1sController < ApplicationController
     )
    
 
+    Rails.logger.info JSON.pretty_generate(store.as_json)
 
     #cron sheduler way : 
     
@@ -24,7 +25,10 @@ class Store1sController < ApplicationController
                          .offset((page - 1) * per_page)
                          .limit(per_page)
               
-    Rails.logger.info "Response : #{stores.to_json}"
+      ###Logs######
+    Rails.logger.info "==== Store RESPONSE START ===="
+    Rails.logger.info JSON.pretty_generate(response_data.as_json)
+    Rails.logger.info "==== Store RESPONSE END ===="
     render json: {
       stores: stores,
       meta: {
